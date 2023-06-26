@@ -51,6 +51,17 @@
                     random= rand() % 101; 
                     SDL_SetWindowPosition(Windows_tab[j],x+random,y);
 
+                    SDL_GetWindowSize(Windows_tab[j], &w, &h);
+                    
+                    if(random > 50){
+                        w = 250;
+                        h=150;
+                    }
+                    else{
+                        w = 150;
+                        h =200;
+                    }
+                    SDL_SetWindowSize(Windows_tab[j], w, h);
                     
 
                 }
