@@ -26,7 +26,7 @@
        for(int i = 0; i<nbWindow; i++){
                 /* Création de la fenêtre de gauche */
             sprintf(fenetre, "fenetre %d", i);
-            Windows_tab[i] = SDL_CreateWindow(fenetre,0, 200*i,200, 200,SDL_WINDOW_RESIZABLE);                 // redimensionnable
+            Windows_tab[i] = SDL_CreateWindow(fenetre,0, 200*i,200, 200,SDL_WINDOW_RESIZABLE);// les fenetre les unes en dessous des autres 
 
             if ( Windows_tab[i] == NULL) {
             SDL_Log("Error : SDL window 1 creation - %s\n", 
@@ -36,15 +36,15 @@
             }
 
        }
-       for (int i = 0; i < 50; i++)
+       for (int i = 0; i < 50; i++) // nombre de déplacement possible 
        {
-            for (int j = 0; j < nbWindow; j++)
+            for (int j = 0; j < nbWindow; j++) //chaque fenetre se déplace 
             {
                 SDL_Delay(100);
                 SDL_GetWindowPosition(Windows_tab[j], &x, &y);
                 if(x>1700){
                     printf("fenetre %d à gagné\n", j);
-                    j=9999;
+                    j=9999; // on sort de la boucle 
                     i=9999;
                 }
                 else{  
@@ -53,7 +53,7 @@
 
                     SDL_GetWindowSize(Windows_tab[j], &w, &h);
                     
-                    if(random > 50){
+                    if(random > 50){ // si la fenetre va vite, elle s'allonge 
                         w = 250;
                         h=150;
                     }
