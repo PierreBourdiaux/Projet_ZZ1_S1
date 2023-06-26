@@ -46,13 +46,71 @@
        /*                                     On dessine dans le renderer                                                   */
        /*********************************************************************************************************************/
        /*             Cette partie pourrait avantageusement être remplacée par la boucle évènementielle                     */ 
-        drawMouton(renderer, 0,0);                                      // appel de la fonction qui crée l'image  
-        drawMouton(renderer, 500,0);                                      // appel de la fonction qui crée l'image  
-        drawMouton(renderer, 0,300);                                      // appel de la fonction qui crée l'image  
-        drawMouton(renderer, 600,200);                                      // appel de la fonction qui crée l'image  
+       setBackGround(renderer);
+        drawMouton(renderer, -50, 300);                                      // appel de la fonction qui crée l'image  
+        drawMouton(renderer, 200,300);                                      // appel de la fonction qui crée l'image  
+        SDL_RenderPresent(renderer); 
+        SDL_Delay(5000);
 
-        SDL_RenderPresent(renderer);                         // affichage
 
+        for(int i =0; i<100; i++){
+          if(i<50){
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, -50+5*i, 300-5*i);                                      // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 200,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+          else{
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, -50+5*i, 300-5*(100-i));                                      // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 200,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+        }
+
+
+        for(int i =0; i<101; i++){
+          if(i<50){
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, 200+5*i, 300-5*i);                                      // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 450,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+          else{
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, 200+5*i, 300-5*(100-i));
+            drawMouton(renderer, 450,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+        }
+
+        for(int i =0; i<101; i++){
+          if(i<50){
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, 450+5*i, 300-5*i);                                      // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 700,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+          else{
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, 450+5*i, 300-5*(100-i));
+            if(i==100) printf("X : %d , Y: %d\n",200+5*i, 300-5*(100-i) );                                     // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 700,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+        }
 
          SDL_bool
       program_on = SDL_TRUE,                          // Booléen pour dire que le programme doit continuer
