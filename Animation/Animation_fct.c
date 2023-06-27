@@ -106,33 +106,23 @@ void AnimationLapin(SDL_Renderer * renderer, SDL_Window* window){
        SDL_RenderCopy(renderer, texture_Montagne, 
                &sourceMontagne,
                &destinationMontagne);
-
-
        SDL_RenderCopy(renderer, texture_Foret, 
                &sourceForet,
                &destinationForet);
-
       SDL_RenderCopy(renderer, texture_Foret, 
                &sourceForet,
                &destinationForet2);
-      
+     
       SDL_RenderCopy(renderer, texture_Sol, 
                &sourceSol,
                &destinationSol);
 
       SDL_RenderCopy(renderer, texture_Sol, 
                &sourceSol,
-               &destinationSol2);
-               
-     
-
-      
-  
+               &destinationSol2);          
       SDL_RenderCopy(renderer, texture, 
                &state,
                &destination); 
-
-
  
       SDL_RenderPresent(renderer);         // Affichage
       SDL_Delay(50);                       // Pause en ms
@@ -140,11 +130,11 @@ void AnimationLapin(SDL_Renderer * renderer, SDL_Window* window){
 
 
 
+
    
    IMG_Quit();
 
    SDL_DestroyTexture(texture);
-
 
 }
 
