@@ -2,9 +2,9 @@
   
   void drawMouton(SDL_Renderer* renderer, int x, int y) { 
  
-           
-
-       SDL_SetRenderDrawColor(renderer,255,255,255,255);   
+      srand(y*x);
+ 
+       SDL_SetRenderDrawColor(renderer,rand()%255,rand()%255,rand()%255,255);   
        drawRect(renderer, 100+x,100+y,150,100);                            
 
        SDL_SetRenderDrawColor(renderer,240,240,240,255);         
