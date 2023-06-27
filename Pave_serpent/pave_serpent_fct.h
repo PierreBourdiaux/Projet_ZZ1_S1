@@ -7,3 +7,4 @@
 void drawMouton(SDL_Renderer* renderer, int x,int y);
 void drawRect(SDL_Renderer* renderer, int x, int y, int w,int h);
 void setBackGround(SDL_Renderer* renderer);
+void SauteMouton(SDL_Renderer* renderer, int No);

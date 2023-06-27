@@ -66,3 +66,71 @@
        SDL_RenderFillRect(renderer, &rectangle); 
 
      }
+
+     void SauteMouton(SDL_Renderer* renderer, int No){
+      switch(No){
+        case 0 : 
+          for(int i =0; i<100; i++){
+          if(i<50){
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, -50+5*i, 300-5*i);                                      // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 200,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+          else{
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, -50+5*i, 300-5*(100-i));                                      // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 200,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+        }
+        break;
+
+        case 1 : 
+          for(int i =0; i<101; i++){
+          if(i<50){
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, 200+5*i, 300-5*i);                                      // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 450,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+          else{
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, 200+5*i, 300-5*(100-i));
+            drawMouton(renderer, 450,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+        }
+        break;
+
+        default :
+        for(int i =0; i<101; i++){
+          if(i<50){
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, 450+5*i, 300-5*i);                                      // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 700,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+          else{
+            SDL_RenderClear(renderer);
+            setBackGround(renderer);
+            drawMouton(renderer, 450+5*i, 300-5*(100-i));
+            if(i==100) printf("X : %d , Y: %d\n",200+5*i, 300-5*(100-i) );                                     // appel de la fonction qui crée l'image  
+            drawMouton(renderer, 700,300);                                      // appel de la fonction qui crée l'image  
+            SDL_RenderPresent(renderer); 
+            SDL_Delay(10);
+          }
+        }
+        break;
+      }   
+     }
