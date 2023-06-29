@@ -18,14 +18,13 @@
 
        /* Initialisation de la SDL  + gestion de l'échec possible */
        if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-     SDL_Log("Error : SDL initialisation - %s\n", 
-                  SDL_GetError());                // l'initialisation de la SDL a échoué 
-     exit(EXIT_FAILURE);
+        SDL_Log("Error : SDL initialisation - %s\n", 
+                    SDL_GetError());                // l'initialisation de la SDL a échoué 
+        exit(EXIT_FAILURE);
        }
-
+       
        for(int i = 0; i<nbWindow; i++){
-                /* Création de la fenêtre de gauche */
-            sprintf(fenetre, "fenetre %d", i);
+            sprintf(fenetre, "Fenetre %d", i+1); // on met le nom de la fenetre dans fenetre
             Windows_tab[i] = SDL_CreateWindow(fenetre,0, 200*i,200, 200,SDL_WINDOW_RESIZABLE);// les fenetre les unes en dessous des autres 
 
             if ( Windows_tab[i] == NULL) {

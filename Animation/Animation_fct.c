@@ -79,22 +79,21 @@ void AnimationLapin(SDL_Renderer * renderer, SDL_Window* window){
     destinationMontagne.y =window_dimensions.h-sourceMontagne.h*2.1;
     
 
-    int speed = 9;
     for (int frame = 0; frame<400; frame++) {
         destination.x =frame*8;
-        int x = frame /100;
       state.x += offset_x;                 // On passe à la vignette suivante dans l'image
       state.x %= source.w;                 // La vignette qui suit celle de fin de ligne est
 
         destinationMontagne.x = destinationMontagne.x -2;
-        if(destinationSol.x <-1900) destinationSol.x = 1900;
+
+        if(destinationSol.x <-1890) destinationSol.x = 1890;
         else  destinationSol.x = destinationSol.x -20;
-        if(destinationSol2.x <-1900) destinationSol2.x = 1900;
+        if(destinationSol2.x <-1890) destinationSol2.x = 1890;
         else destinationSol2.x = destinationSol2.x -20;
 
-        if(destinationForet.x <-2060) destinationForet.x = 2060;
+        if(destinationForet.x <-2050) destinationForet.x = 2050;
         else  destinationForet.x = destinationForet.x -10;
-        if(destinationForet2.x <-2060) destinationForet2.x = 2060;
+        if(destinationForet2.x <-2050) destinationForet2.x = 2050;
         else destinationForet2.x = destinationForet2.x -10;
 
         
@@ -127,10 +126,6 @@ void AnimationLapin(SDL_Renderer * renderer, SDL_Window* window){
       SDL_RenderPresent(renderer);         // Affichage
       SDL_Delay(50);                       // Pause en ms
      }
-
-
-
-
    
    IMG_Quit();
 

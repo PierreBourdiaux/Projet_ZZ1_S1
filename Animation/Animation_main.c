@@ -12,7 +12,6 @@ int main(int argc, char const *argv[])
     
     (void)argc;
     (void)argv;
-    int x,y;
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
 
