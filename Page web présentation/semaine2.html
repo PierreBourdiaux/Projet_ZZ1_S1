@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Projet ZZ1 Groupe 30</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/base.css">
+    <link rel="stylesheet" href="public/css/header.css">
+    <link rel="stylesheet" href="public/css/body.css">
+  </head>
+
+  <body>
+
+    <div class="header">
+        <div class="header_texture"></div>
+        <div class="header__mask">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100" fill="#fff"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="header__navbar">
+                <div class="header__navbar--logo">
+                    <h1 class="header__navbar--logo-title">Projet ZZ1 Groupe 30</h1>
+                </div>
+                <div class="header__navbar--menu">
+                    <a href="./index.html" class="header__navbar--menu-link">Membre</a>
+                    <a href="./semaine1.html" class="header__navbar--menu-link">Suivi: Semaine 1</a>
+                    <a href="#section3" class="header__navbar--menu-link">Suivi: Semaine 2</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="articles">
+        <div id="section3">
+        <div class="container">
+          <h2 class="articles__title">Suivi</h2>
+            <section id="section2">
+                <h3 class="articles__under__title">Semaine 2</h3>
+
+                  <h3 class="article__name--travail">Jeu avec apprentissage de règles</h3>
+                  <br><br>
+
+                    <div class="article_name">Lien vers le git du projet: 
+                        <a href="https://gitlab.isima.fr/momomen/ce_matin_un_lapin"  class="article__lien__git" style="font-size: 25px;">
+                          https://gitlab.isima.fr/momomen/ce_matin_un_lapin </a>
+                
+                          <br><br>
+      
+                <h3 class="article__name--travail">Projet initial :</h3>
+                    <p>On a pour but de créer un jeu qui apprend seul, en modifiant ses règles pour les rendre optimales suite à plusieurs 
+                      itérations. Pour ce faire, on a pour but de créer un jeu proie/prédateur avec un chasseur qui doit attraper le lapin qui représentera
+                      l'IA et lui doit se rendre dans son terrier. Il sera complexifié au cours du temps.
+                    </p>
+
+                <h3 class="article__name--travail">Phase 1 : Création du jeux et des règles initiale</h3>
+                    
+                    <br>
+                    <h1>Structures utilisées pour la gestion des règles et de notre joueur</h1>
+                    <img src="./public/img/Structures_règles.png" alt="image">
+                    <p>On a défini alors 4 enum qui couvrent toutes nos perceptions définies dans nos règles, on les incorporera
+                      dans 2 structures, rules_t et joueur_t.
+                    </p>
+
+                    <br>
+                    <h1>Règles définie initialement </h1>
+                    <img src="./public/img/regle_init.png" alt="image">
+                    <p>On a défini initialement 24 règles que respectera notre lapin pour se déplacer dans la map que l'on a généré.
+                    </p>
+                    <br>
+
+                    <br>
+                    <h1>Génération de terrain</h1>
+                    <p> On crée des patterns aléatoires tout en faisant attention qu'il existe au moins un chemin possible (pour se faire
+                      on utilise l'algorithme de Dijkstra pour savoir si il y en a un entre le lapin et le terrier). 
+                      On a généré des maps de taille 12,25,50 et 150 respectivement. On remarque que l'on doit se limiter à des petites
+                      maps au vu de la taille de nos personnages et du nombre d'itérations de jeu que l'on va avoir.
+                    </p>
+                    <img src="./public/img/petite_map.png" alt="image">
+                    <br>
+                    <img src="./public/img/moyenne_map_25.png" alt="image">
+                    <br>
+                    <img src="./public/img/map_50.png" alt="image">
+                    <br>
+                    <img src="./public/img/taille_150.png" alt="image">
+                    <br>
+                    
+
+                    <h1>Algorithme de Dijkstra</h1>
+                    <img src="./public/img/dijkstra.gif" alt="gif animé">
+                    <p> Grâce à cet algorithme, on obtient le plus petit chemin entre le chasseur et le lapin, le tout très rapidement.
+                    </p>
+
+                    <h1>Déplacement du chasseur</h1>
+                    <img src="./public/img/Deplacement_chasseur.png" alt="image">
+                    <p>Pour le déplacement du chasseur, on définit et l'on utilise l'algorithme de Dijkstra qui nous donne le plus court chemin. 
+                      Ainsi, lorsque le chasseur se trouve à plus de (taille de notre map/2) il ignore Dijkstra et se déplace aléatoirement. 
+                      Lorsque le lapin rentre dans sa zone de détection, il y a une chance sur 2 qu'il suive Dijkstra.
+                    </p>
+
+                    <h1>Rendu Phase 1</h1>
+                    <img src="./public/img/premier_lapin.gif" alt="gif animé">
+                    <p>Voici le premier rendu du jeu, où le lapin suit ses règles initiale.
+                    </p>
+
+                    <h1>Résultat de nos règles initiale</h1>
+                    <img src="./public/img/resultat_règle_init.jpg" alt="image">
+                    <p> On va donc chercher à les améliorer lors de la phase 2.
+                    </p>
+
+                <h3 class="article__name--travail">Phase 2 : Amélioration de notre IA</h3>
+                    <br>
+                    <h1>Mise en place de la possibilité de jouer notre jeu</h1>
+                    <p> Dans le but de se rendre compte de ce que l'on attend du lapin, on a rendu les jeux jouables 
+                      avec les flèches directionnels.
+                    </p>
+                    <img src="./public/img/jeu_a_la_main.gif" style = " width: 500 px; height: 500px;" alt="gif animé">
+                    <br>
+
+                    <h1>3 types de lancement de jeux pour nos test</h1>
+                    <img src="./public/img/differente_fonction_de_test.png" alt="image">
+                    <p> Pour pouvoir tester nos différents set de règles/optimiser un set de règles
+                       on utilisera le mode sans graphisme pour pouvoir faire de nombreux calculs très rapidement.
+                       Le mode avec graphisme sera très utile pour voir le déplacement du lapin lors d'une exécution.
+                    </p>
+                    
+                    <br><br>
+
+                    <h1>Génération des nouvelles règles </h1>
+                    <br><br>
+                    
+                    <h2 style="text-decoration: underline;">Méthode 1: Génération aléatoire de règles</h2>
+                    <br>
+                    <p>On génère un jeu de règles aléatoire, on le teste 10 fois et si le lapin gagne parmi les parties, 
+                      on garde le jeu de données dans un fichier. 
+                      <br><b>Attention</b>, lors de la génération des règles, il faut faire en sorte que les règles 
+                      qui ne peuvent pas arriver ne soit pas présente (exemple : 2 terriers, un lapin, etc.) 
+                    </p>
+                    <br>              
+                    <p>Lorsque que l'on avait trouvé plusieurs jeux de règles « potentiellement » acceptable, 
+                      nous les testions une centaine de fois pour avoir un pourcentage de réussite pas jeu.
+                      Pour accélérer le processus de génération et de teste de jeu de règles, 
+                      nous avons implémenté le multithreading et ainsi espérer trouver un résultat satisfaisant le plus rapidement possible.</p>
+                    <br>
+                  
+                    <img src="./public/img/gen_alea.png" alt="image">
+                    <br>
+                    <p><b>thread_jeu</b>: Génère des jeux de règles tant que le lapin perd une partie, 
+                      lorsque qu'il gagne, on enregistre les règles et l'on quitte le thread.</p>
+                    <br>
+
+                    <img src="./public/img/regle_trouver_alea.png" alt="image">
+                    <p>Voici l'un des jeux de donnée que nous avons trouvés</p>
+                    <br>
+                    <img src="./public/img/resultat_regle_alea.png" alt="image">
+                    <p>Résultat sur 1000 itérations
+                      <br>À ce moment, ce résultat est le meilleur obtenu. 
+                    </p>
+
+                    <h2 style="text-decoration: underline;">Méthode 2: Génération de règles par une méthode gloutonne</h2>
+                    <br>
+                    <p> Le principe de l'algorithme est de tirer au hasard une règle puis tirer dans celle-ci au hasard un paramètre.
+                      On va évaluer le jeu de règles en remplaçant le paramètre tiré par tous les autres possibles ( dans un premier temps
+                      on l'évalue une centaine de fois).
+                    </p>
+                    <br>              
+                    <p>On garde celui qui a fait le plus gros score en moyenne pour l'insérer dans notre jeu de règles. 
+                      On réintère ce processus jusqu'à ce qu'on ait testé les 240 paramètres possibles pour notre jeu de règles.
+                       Cet algorithme nous créera alors après de nombreux appels un jeu beaucoup plus performant.
+                    </p>
+                    <br>
+                    
+                    <br>
+                    <h1>Erreur d'amélioration de nos règles</h1>
+                    <p> Lors de notre première tentative d'amélioration des règles de notre lapin, 
+                      on a obtenu un groupe de règles qui nous donnaient un lapin peureux qui fait que reculer où ne pas bouger du tout. 
+                      Cela venait de notre fonction qui attribuait des points (énergies), 
+                      on favorisait trop la survie contrairement au fait d'atteindre le terrier.
+                    </p>
+                    <img src="./public/img/lapinPeureux.gif" alt="gif animé">
+                    <br><br>
+
+                    <h1>Structure nécessaire pour le passage en multithreading</h1>
+                    <img src="./public/img/structure_multi.png" alt="image">
+                    <p> Pour pouvoir passer en multithreading on a dû créer une structure pour regrouper tous
+                       nos arguments en un, car le multithreading n'accepte qu'un seul argument.
+                    </p>
+
+                    <h1>Jeu de règles obtenu avec une seed fixe</h1>
+                    <img src="./public/img/seed_fixé.png" alt="image">
+                    <p> On avait supposé qu'avec un seul et même terrain notre lapin apprenait beaucoup mieux, cependant avec un test
+                      de 1000 itérations pour tester une dernière fois le jeu, après que l'algorithme glouton nous l'ait créé, le lapin.
+                      n'a pas gagné 1 seule partie.
+                    </p>
+
+                    <h1>Jeu de règles obtenu en dernier avec l'algorithme</h1>
+                    <img src="./public/img/dernier jeu de règles.png" alt="image">
+                    <br>
+                    <img src="./public/img/resultat_der_jeu.png" alt="image">
+                    <p> Voici notre dernier jeu de règles obtenu par notre algorithme. 
+                      Il n'est pas encore optimal avec un taux de réussite de 8 %.
+                    </p>
+                    <br>
+                    <img src="./public/img/jeu_appris.gif" alt="gif animé">
+                    <p>Les résultats de l'apprentissage nous montrent que le lapin se dirige très franchement vers le nord-est, ce qui semble cohérent. 
+                      Cependant, il ne sait pas tourner à droite ou reculer lorsqu'il est bloqué dans un coin.
+                    </p>
+                    <br>
+                    <p>Sur quelques parties il nous montre des aspect intérressant pour la suite.</p>
+                    <br>
+                    <img src="./public/img/pas_mal.gif" alt="gif animé">
+
+                    <br><br>
+
+
+                    <h3 style="text-decoration: underline;">Git/Gource</h3>
+                    <br>
+                    <img src="./public/img/nombre_commit.png"   alt="image">
+                    <br>
+                    <img src="./public/img/gource_2.png"   alt="image">
+
+                    <h3 style="text-decoration: underline;">Petite pensée pour nos ordinateurs</h3>
+                    <br>
+                    <img src="./public/img/cpu_morgan.png"   alt="image">
+                    <br>
+                    <img src="./public/img/cpu_pierre.png"   alt="image">
+                    
+
+
+
+
+
+
+
+
+
+
+                  
+
+
+           
+        </div> 
+        </section3>
+    </div>
+
+    <footer>
+      <p>©Copyright 2023 par le groupe 30. Tous droits reversés.</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,84 @@
+.articles{
+    text-align: center;
+    padding-top: 30px;
+    
+}
+
+.articles__title{
+    font-size: 60px;
+    text-align: center;
+    color: black;
+    border-bottom: 3px solid black ;
+
+}
+
+.articles__items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 40px;
+    vertical-align: text-top
+}
+
+
+
+.articles__under__title{
+    font-size: 50px;
+    text-align: center;
+    color: black;
+    border-bottom: 3px solid black ;
+    display: block;
+    padding-top: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+
+}
+
+.article{
+    width: 25%;
+    height: 400px;
+    border-radius: 5px;
+}
+
+.article__name{
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    color: black;
+    text-decoration: none;
+    vertical-align: text-top
+    
+}
+
+.article__name--travail{
+    font-size: 40px;
+    text-align: center;
+    color: black;
+    border-bottom: 3px solid black ;
+    display: inline;
+    padding-top: 20px;
+}
+
+.article_nom__membre
+{
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    margin: 50px;
+    justify-content: space-evenly;
+
+}
+
+
+.article__lien__git
+{
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    color: black;
+    text-decoration: none;
+    vertical-align: text-top
+
+}
